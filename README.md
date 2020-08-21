@@ -8,15 +8,11 @@
 
 # 下载安装
 
-1、git clone https://github.com/walkor/workerman-chat
-
-2、composer install
+1、git clone https://github.com/wzJun1/uni-nvue-chat-websocket
 
 
 
 # 项目端口
-
-
 
 start_gateway.php
 
@@ -28,10 +24,10 @@ new Gateway("Websocket://0.0.0.0:6621")
 
 # 启动停止(Linux系统)
 
-
-
 以debug方式启动
 `php start.php start`
+
+
 
 以daemon方式启动
 `php start.php start -d`
@@ -39,8 +35,6 @@ new Gateway("Websocket://0.0.0.0:6621")
 
 
 # 启动(windows系统)
-
-
 
 双击start_for_win.bat
 
