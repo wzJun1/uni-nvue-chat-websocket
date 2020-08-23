@@ -32,11 +32,15 @@ class Events
             case 'pong':
                 return;
             case 'login':
-
                 $_SESSION['uid'] = $message_data['uid'];
-                $clients = Gateway::getClientIdByUid($message_data['uid']);
-                foreach ($clients as $val){
-                    Gateway::closeClient($val);
+
+                if(Gateway::isUidOnline($message_data['uid'])){
+                    $clients = Gateway::getClientIdByUid($message_data['uid']);
+                    $callback['type'] = 'kickout';
+                    $callback['uid'] = $message_data['uid'];
+                    foreach ($clients as $val){
+                        Gateway::sendToClient($val, json_encode($callback));
+                    }
                 }
 
                 Gateway::bindUid($client_id, $message_data['uid']);
