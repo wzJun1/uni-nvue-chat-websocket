@@ -59,6 +59,12 @@ class Events
                     Gateway::joinGroup($to_client_id[0], $message_data['groupId']);
                 }
                 return;
+            case 'outGroup':
+                $to_client_id = Gateway::getClientIdByUid($message_data['uid']);
+                if(!empty($to_client_id[0])){
+                    Gateway::leaveGroup($to_client_id[0],  $message_data['groupId']);
+                }
+                return;
             case 'say': case 'addfriend':
 
                 $uid = $_SESSION['uid'];
@@ -106,13 +112,6 @@ class Events
        // debug
 //       echo "client:{$_SERVER['REMOTE_ADDR']}:{$_SERVER['REMOTE_PORT']} gateway:{$_SERVER['GATEWAY_ADDR']}:{$_SERVER['GATEWAY_PORT']}  client_id:$client_id onClose:''\n";
 //
-       // 从房间的客户端列表中删除
-       if(isset($_SESSION['room_id']))
-       {
-           $room_id = $_SESSION['room_id'];
-           $new_message = array('type'=>'logout', 'from_client_id'=>$client_id, 'from_client_name'=>$_SESSION['client_name'], 'time'=>date('Y-m-d H:i:s'));
-           Gateway::sendToGroup($room_id, json_encode($new_message));
-       }
    }
   
 }
