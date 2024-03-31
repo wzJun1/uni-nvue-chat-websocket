@@ -7,6 +7,7 @@ This repo has stopped maintenance, you can still continue to read the source cod
 
 It is recommended to use the open source IMSDK: [YeIM-Uni-SDK](https://github.com/wzJun1/YeIM-Uni-SDK) for uni-app projects.
 
+![微信公众号.png](https://s2.loli.net/2024/03/31/MHE1CD3WtP2nUOQ.jpg)
 
 # uni-nvue-chat-websocket
 
